@@ -1,0 +1,35 @@
+[user]
+        name = {{ user_full_name }}
+
+        # Personal account
+        email = {{ user_github_email }}
+        signingkey = {{ user_gnupg_key_id | default(omit) }}
+
+[commit]
+        gpgsign = {{ user_github_gnupg_sign }}
+
+[color]
+        diff        = auto
+        status      = auto
+        branch      = auto
+        interactive = auto
+        ui          = true
+        pager       = true
+
+[alias]
+        lg = log --graph --all
+
+[github]
+        user = {{ user_github_username }}
+
+[core]
+        excludesfile = ~/.gitignore_global
+
+[push]
+        default = simple
+
+[filter "lfs"]
+        required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process

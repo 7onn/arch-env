@@ -1,0 +1,110 @@
+- name: Ensure {{ user_group }} group exists
+  become: yes
+  group:
+    name: '{{ user_group }}'
+    state: present
+    gid: '{{ user_gid }}'
+
+- name: Ensure {{ user_name }} user exists
+  become: yes
+  user:
+    name: '{{ user_name }}'
+    groups:
+      - '{{ user_group }}'
+      - root
+      - wheel
+    append: yes
+    group: '{{ user_group }}'
+    uid: '{{ user_uid }}'
+    shell: '/usr/bin/zsh'
+
+- name: Ensure the ~/.ssh directory exists for {{ user_name }}
+  become: yes
+  become_user: '{{ user_name }}'
+  file:
+    path: '/home/{{ user_name }}/.ssh'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0700'
+
+- name: Generate SSH keypair for {{ user_name }}
+  become: yes
+  become_user: '{{ user_name }}'
+  openssh_keypair:
+    path: '/home/{{ user_name }}/.ssh/id_rsa'
+  when:
+    - user_create_ssh_keypair|bool
+
+- name: Add extra home directories
+  become: yes
+  become_user: '{{ user_name }}'
+  file:
+    path: '/home/{{ user_name }}/{{ item }}'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0755'
+  loop: '{{ user_extra_home_dirs }}'
+
+- name: Add playbook downloads directory
+  become: yes
+  become_user: '{{ user_name }}'
+  file:
+    path: '/home/{{ user_name }}/Downloads/playbook'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0755'
+
+- name: Add home .config directory
+  become: yes
+  become_user: '{{ user_name }}'
+  file:
+    path: '/home/{{ user_name }}/{{ item }}'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0755'
+  loop:
+    - .config
+    - .bin
+
+- name: Ensure bash directories exist for {{ user_name }}
+  become: yes
+  become_user: '{{ user_name }}'
+  file:
+    path: '/home/{{ user_name }}/{{ item }}'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0755'
+  loop:
+    - .bash_aliases.d
+    - .bash_env.d
+    - .bash_completions.d
+
+- name: Add user configuration files
+  become: yes
+  become_user: '{{ user_name }}'
+  copy:
+    src: 'home/{{ item }}'
+    dest: '/home/{{ user_name }}/'
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0644'
+  loop:
+    - .bash_logout
+    - .bash_profile
+    - .bashrc
+    - .Xmodmap
+
+- name: Add user .ssh configuration file
+  become: yes
+  become_user: '{{ user_name }}'
+  copy:
+    src: 'home/.ssh/config'
+    dest: '/home/{{ user_name }}/.ssh/config'
+    owner: '{{ user_name }}'
+    group: '{{ user_group }}'
+    mode: '0644'

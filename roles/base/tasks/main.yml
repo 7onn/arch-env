@@ -1,0 +1,5 @@
+- name: System base configuration
+  import_tasks: system.yml
+
+- name: User base configuration
+  import_tasks: user.yml

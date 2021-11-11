@@ -1,9 +1,9 @@
-- name: Ensure {{ user_group }} group exists
-  become: yes
-  group:
-    name: '{{ user_group }}'
-    state: present
-    gid: '{{ user_gid }}'
+#- name: Ensure {{ user_group }} group exists
+#  become: yes
+#  group:
+#    name: '{{ user_group }}'
+#    state: present
+#    gid: '{{ user_gid }}'
 
 - name: Ensure {{ user_name }} user exists
   become: yes

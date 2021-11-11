@@ -21,6 +21,9 @@ alias json_pp='python -mjson.tool'
 
 alias k='kubectl'
 
+alias kbr='setxkbmap -model abnt2 -layout br -variant abnt2 -option ctrl:nocaps'
+alias kus='setxkbmap -layout us -option ctrl:nocaps'
+
 #myip(){
 #  curl -s https://ipinfo.io/json | jq .ip | sed -e 's/\"//g' | pbcopy
 #  curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy

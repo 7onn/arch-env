@@ -82,5 +82,4 @@
   loop:
     - avahi-daemon
     - NetworkManager
-    - cups
     - systemd-resolved

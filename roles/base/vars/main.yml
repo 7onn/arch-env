@@ -4,12 +4,6 @@
 #
 
 # user_name: tom
-# user_group: tom
-# user_uid: 1000
-# user_gid: 1000
-
-# user_create_ssh_keypair: no
-
 # user_gnupg_key_id: '0x9999999999999999'
 
 # Other directories to create inside the user home

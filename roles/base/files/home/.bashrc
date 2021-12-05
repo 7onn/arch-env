@@ -33,13 +33,3 @@ done
 for f in ~/.bash_completions.d/*; do
   source $f;
 done
-
-# Dynamic theming via pywal, if available
-if [ -f ~/.cache/wal/sequences ]; then
-  (cat ~/.cache/wal/sequences &)
-fi
-
-# Apply current color scheme
-if [ -f ~/.cache/wal/colors-tty.sh ]; then
-  source ~/.cache/wal/colors-tty.sh
-fi

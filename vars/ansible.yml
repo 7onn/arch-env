@@ -6,16 +6,12 @@
 user_full_name: Tom M G
 
 user_name: tom
-user_group: tom
-user_uid: 1000
-user_gid: 1000
 
 user_github_username: 7onn
 
 user_github_email: devbytom@gmail.com
 user_github_gnupg_sign: true
 user_gnupg_key_id: '0xD361C1650D53AF71'
-user_create_ssh_keypair: no
 
 user_extra_home_dirs:
   - w

@@ -15,29 +15,6 @@ Some of the features provided by this role:
 
 Username of the main user of the system.
 
-### `user_group`
-
-**Default value:** `None`
-
-Group name of the main user of the system.
-
-### `user_uid`
-
-**Default value:** `None`
-
-UID of the main user of the system.
-
-### `user_gid`
-
-**Default value:** `None`
-
-GID of the main user of the system.
-
-### `user_create_ssh_keypair`
-
-**Default value:** `no`
-
-Whether to create a SSH keypair for the main user of the system.
 
 ### `user_gnupg_key_id`
 

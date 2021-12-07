@@ -1,5 +1,8 @@
-# manjaro-workstation
-This repository stores configuration files for bootstrapping my work laptop
+# arch-env
+This repository stores Ansible roles and playbooks for bootstrapping my computers
+
+> I'm too lazy to install Arch from scratch, so I rely on [ArchLabs](https://archlabslinux.com/), which provides a GUI for partitioning the disk, setting up users, groups, WiFi, etc.
+
 
 # Requirements
 ```bash
@@ -12,7 +15,7 @@ systemctl start sshd.service
 Once the requirements are fulfilled run the following commands
 ```bash
 # Clone the repository
-git clone https://github.com/tompsh/manjaro-workstation.git
+git clone https://github.com/7onn/arch-env.git
 
 # Edit the variables accordingly
 $EDITOR vars/ansible.yml

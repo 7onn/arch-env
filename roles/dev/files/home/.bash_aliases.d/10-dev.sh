@@ -24,22 +24,20 @@ alias k='kubectl'
 alias kbr='setxkbmap -model abnt2 -layout br -variant abnt2 -option ctrl:nocaps'
 alias kus='setxkbmap -layout us -option ctrl:nocaps'
 
-#myip(){
+myip(){
 #  curl -s https://ipinfo.io/json | jq .ip | sed -e 's/\"//g' | pbcopy
-#  curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy
-#}
+ curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy
+}
+
+# gcloud full authentication
+alias glogin='gcloud auth login --update-adc --no-launch-browser --force'
+
+# open manuals with Vim
+alias man="man -P \"sh -c 'col -b | vim -c \\\"set ft=man nomod nolist\\\" -'\""
 
 sshls(){
   for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq
 }
-
-#getsecret(){
-#  echo -n $1 | base64 -d | sed -e 's/\n//g' | pbcopy
-#}
-
-#setsecret(){
-#  echo -n $1 | base64 | sed -e 's/\n//g' | pbcopy
-#}
 
 tameouvindo() {
   sudo lsof -iTCP -sTCP:LISTEN

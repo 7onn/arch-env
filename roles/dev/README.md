@@ -10,12 +10,6 @@ This role installs and configures the software I currently use for working.
 
 Username of the main user of the system.
 
-### `user_group`
-
-**Default value:** `None`
-
-Group name of the main user of the system.
-
 ### `user_gnupg_key_id`
 
 **Default value:** `None`
@@ -39,15 +33,3 @@ GitHub username.
 **Default value:** `None`
 
 Email used to populate the author e-mail in Git commit.
-
-### `os_release_codename`
-
-**Default value:** `focal`
-
-Defaults to ubuntu 20.
-
-### `terraform_version`
-
-**Default value:**: `0.14.7`
-
-Terraform executable version.

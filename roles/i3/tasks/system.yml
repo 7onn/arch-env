@@ -1,0 +1,48 @@
+---
+
+- name: Add system bin scripts
+  become: true
+  ansible.builtin.copy:
+    src: usr/local/bin/
+    dest: /usr/local/bin/
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copy background images
+  ansible.builtin.copy:
+    src: '{{ item }}'
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: '0644'
+  loop:
+    - usr/share/backgrounds/
+
+- name: Ensure pulseaudio supports bluetooth
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/pulse/system.pa
+    regexp: '^load-module {{ item }}'
+    line: 'load-module {{ item }}'
+  loop:
+    - module-bluetooth-policy
+    - module-bluetooth-discover
+  when:
+    - system_bluetooth|bool
+
+- name: Load module-echo-cancel PulseAudio module by default
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/pulse/default.pa
+    regexp: '^load-module module-echo-cancel'
+    line: load-module module-echo-cancel
+
+- name: Enable services service
+  become: true
+  ansible.builtin.systemd:
+    name: '{{ item }}'
+    enabled: true
+  loop:
+    - ipp-usb
+    - lightdm

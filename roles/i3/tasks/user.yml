@@ -1,0 +1,32 @@
+---
+- name: Ensure config directories exist in $HOME
+  become_user: '{{ user_name }}'
+  ansible.builtin.file:
+    path: '/home/{{ user_name }}/{{ item }}'
+    mode: '0755'
+    state: directory
+  loop:
+    - .bin
+    - .config
+
+- name: Add user config files
+  become_user: '{{ user_name }}'
+  ansible.builtin.copy:
+    src: 'home/{{ item }}'
+    dest: '/home/{{ user_name }}/'
+    owner: '{{ user_name }}'
+    group: users
+    mode: '0644'
+  loop:
+    - .Xresources
+    - .config
+    - .dmrc
+
+- name: Add user bin scripts
+  become_user: '{{ user_name }}'
+  ansible.builtin.copy:
+    src: home/.bin/
+    dest: '/home/{{ user_name }}/.bin/'
+    owner: '{{ user_name }}'
+    group: users
+    mode: '0755'

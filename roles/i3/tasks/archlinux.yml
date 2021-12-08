@@ -1,0 +1,81 @@
+---
+
+- name: Install packages
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - arandr
+      - cheese
+      - chromium
+      - dunst
+      - evince
+      - flameshot
+      - gimp
+      - gnome-keyring
+      - gparted
+      - gsimplecal
+      - gst-libav
+      - gst-plugins-bad
+      - gst-plugins-good
+      - gst-plugins-ugly
+      - htop
+      - i3-gaps
+      - ipp-usb
+      - libappindicator-gtk2
+      - libappindicator-gtk3
+      - libmpdclient
+      - lightdm
+      - lightdm-gtk-greeter
+      - mousepad
+      - nitrogen
+      - nm-connection-editor
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - otf-ipafont
+      - pantheon-calculator
+      - pavucontrol
+      - pulseaudio
+      - pulseaudio-alsa
+      - qt5ct
+      - ranger
+      - rofi
+      - thunar
+      - thunar-archive-plugin
+      - thunar-media-tags-plugin
+      - thunar-volman
+      - transmission-gtk
+      - ttf-arphic-uming
+      - ttf-baekmuk
+      - ttf-fantasque-sans-mono
+      - ttf-freefont
+      - ttf-indic-otf
+      - viewnior
+      - vlc
+      - xfce4-power-manager
+      - yubioath-desktop
+
+- name: Install packages required for bluetooth support
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - pulseaudio-bluetooth
+  when:
+    - system_bluetooth|bool
+
+- name: Install AUR packages
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - lightdm-settings
+      - lightdm-slick-greeter
+      - nerd-fonts-terminus
+      - networkmanager-dmenu-git
+      - pamac-aur
+      - ttf-font-icons
+      - ttf-material-design-icons
+      - ttf-ms-fonts

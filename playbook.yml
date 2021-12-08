@@ -1,5 +1,7 @@
 ---
+
 - hosts: all
   roles:
     - base
     - dev
+    - i3

@@ -1,5 +1,5 @@
 # arch-env
-This repository stores Ansible roles and playbooks for bootstrapping my computers
+This repository stores the Ansible roles responsible for bootstrapping my work machines.
 
 > I'm too lazy to install Arch from scratch, so I rely on [ArchLabs](https://archlabslinux.com/), which provides a GUI for partitioning the disk, setting up users, groups, WiFi, etc.
 
@@ -20,7 +20,7 @@ git clone https://github.com/7onn/arch-env.git
 # Edit the variables accordingly
 $EDITOR vars/ansible.yml
 
-# Install requirements
+# Install ansible required roles
 ansible-galaxy install -r requirements.yml
 
 # Run the playbook

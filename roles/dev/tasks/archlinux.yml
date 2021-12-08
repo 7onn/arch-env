@@ -1,0 +1,55 @@
+---
+
+- name: Install packages
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - android-tools
+      - ansible-lint
+      - bridge-utils
+      - dnsmasq
+      - dnsutils
+      - docker-compose
+      - emacs
+      - go
+      - inetutils
+      - jq
+      - jdk11-openjdk
+      - kubectl
+      - leiningen
+      - libusb-compat
+      - maven
+      - net-tools
+      - ngrep
+      - openbsd-netcat
+      - packer
+      - python-pipenv
+      - python-poetry
+      - python-wheel
+      - twine
+      - sops
+      - terraform
+      - tmux
+      - traceroute
+      - vault
+      - wireshark-qt
+      - yamllint
+
+- name: Install AUR packages
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - aws-cli-v2-bin
+      - authy
+      - brave-bin
+      - gdrive
+      - google-cloud-sdk
+      - pip-tools
+      - pyenv-virtualenv
+      - slack-desktop
+      - tfsec-bin
+      - velero-bin
+      - visual-studio-code-bin
+      - zoom

@@ -1,11 +1,12 @@
+---
+
 - name: Add user configuration files
-  become: yes
   become_user: '{{ user_name }}'
-  copy:
+  ansible.builtin.copy:
     src: 'home/{{ item }}'
     dest: '/home/{{ user_name }}/'
     owner: '{{ user_name }}'
-    group: '{{ user_group }}'
+    group: users
     mode: '0644'
   loop:
     - .bash_aliases.d
@@ -18,40 +19,44 @@
     - .zshrc
 
 - name: Add user configuration templates
-  become: yes
   become_user: '{{ user_name }}'
-  template:
+  ansible.builtin.template:
     src: home/{{ item }}.j2
     dest: '/home/{{ user_name }}/{{ item }}'
     owner: '{{ user_name }}'
-    group: '{{ user_group }}'
+    group: users
     mode: '0644'
   loop:
     - .gitconfig
 
 - name: Install oh-my-zsh
-  become: yes
   become_user: '{{ user_name }}'
-  git:
+  ansible.builtin.git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     version: master
     dest: '/home/{{ user_name }}/.oh-my-zsh'
-    accept_hostkey: yes
+    accept_hostkey: true
 
 - name: Install tmux plugin manager
-  become: yes
   become_user: '{{ user_name }}'
-  git:
+  ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
     version: master
     dest: '/home/{{ user_name }}/.tmux/plugins/tpm'
-    accept_hostkey: yes
+    accept_hostkey: true
 
 - name: Install vundle plugin manager
-  become: yes
   become_user: '{{ user_name }}'
-  git:
+  ansible.builtin.git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     version: master
     dest: '/home/{{ user_name }}/.vim/bundle/vundle'
-    accept_hostkey: yes
+    accept_hostkey: true
+
+- name: Install emacs configuration
+  become_user: '{{ user_name }}'
+  ansible.builtin.git:
+    repo: https://github.com/danielfm/dotfiles-emacs.git
+    version: master
+    dest: '/home/{{ user_name }}/.emacs.d'
+    accept_hostkey: true

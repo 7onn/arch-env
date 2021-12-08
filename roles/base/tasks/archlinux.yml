@@ -1,0 +1,133 @@
+---
+
+- name: Create the 'aur_builder' user
+  become: true
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: true
+    group: wheel
+
+- name: Allow the 'aur_builder' user to run 'sudo pacman' without a password
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: true
+    validate: 'visudo -cf %s'
+
+- name: Enable multilib repository
+  community.general.ini_file:
+    path: /etc/pacman.conf
+    create: false
+    section: multilib
+    option: Include
+    value: /etc/pacman.d/mirrorlist
+
+- name: Update system package definition
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: false
+
+- name: Check if yay AUR helper is available
+  ansible.builtin.stat:
+    path: /usr/local/bin/yay
+  register: yay_stat_result
+
+- name: Add AUR dependencies
+  community.general.pacman:
+    state: present
+    name:
+      - fakeroot
+      - git
+      - gnupg
+
+- name: Clone yay AUR helper repository
+  become: true
+  become_user: aur_builder
+  ansible.builtin.git:
+    repo: https://aur.archlinux.org/yay.git
+    version: master
+    dest: /tmp/yay
+  when: not yay_stat_result.stat.exists
+
+- name: Install yay AUR helper package
+  become: true
+  become_user: aur_builder
+  ansible.builtin.command:
+    chdir: /tmp/yay
+    cmd: makepkg -si --noconfirm
+  when: not yay_stat_result.stat.exists
+
+- name: Ensure yay AUR helper package is up to date
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - yay
+  when: yay_stat_result.stat.exists
+
+- name: Install packages
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - acpid
+      - alsa-lib
+      - alsa-plugins
+      - alsa-utils
+      - avahi
+      - base-devel
+      - calc
+      - curl
+      - duplicity
+      - exfat-utils
+      - foomatic-db-gutenprint-ppds
+      - git
+      - git-lfs
+      - gnupg
+      - gopass
+      - gutenprint
+      - iw
+      - linux-headers
+      - lshw
+      - man-db
+      - man-pages
+      - nano
+      - ncdu
+      - neofetch
+      - networkmanager
+      - nss-mdns
+      - ntfs-3g
+      - ntp
+      - openssh
+      - playerctl
+      - realtime-privileges
+      - sudo
+      - syncthing
+      - time
+      - tree
+      - vim
+      - wget
+      - which
+      - whois
+      - xclip
+      - xterm
+      - zsh
+
+- name: Install AUR packages
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - inxi
+
+- name: Install packages required for bluetooth support
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - blueman
+      - bluez-utils
+  when:
+    - system_bluetooth|bool

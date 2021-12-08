@@ -1,3 +1,5 @@
+---
+
 ##
 ## base
 ##
@@ -15,6 +17,7 @@ user_gnupg_key_id: '0xD361C1650D53AF71'
 user_extra_home_dirs:
   - w
   - l
+  - pkg
   - go/bin
   - go/src
   - go/pkg
@@ -22,12 +25,14 @@ user_extra_home_dirs:
 system_timezone: America/Sao_Paulo
 system_locale: en_US.UTF-8
 
+system_bluetooth: true
+
 system_resolvconf: |
   nameserver 9.9.9.9
   nameserver 149.112.112.112
 
-system_dns_over_tls: yes
-system_dns_dnssec: yes
+system_dns_over_tls: true
+system_dns_dnssec: true
 
 ##
 ## dev

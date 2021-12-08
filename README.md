@@ -12,13 +12,16 @@ systemctl start sshd.service
 ```
 
 # Installation
-Once the requirements are fulfilled run the following commands
+Run the following commands once fulfilled the requirements
 ```bash
 # Clone the repository
 git clone https://github.com/7onn/arch-env.git
 
 # Edit the variables accordingly
 $EDITOR vars/ansible.yml
+
+# Install requirements
+ansible-galaxy install -r requirements.yml
 
 # Run the playbook
 ansible-playbook -Kk \
@@ -30,4 +33,4 @@ ansible-playbook -Kk \
 
 # LICENSE
 
-[GNU General Public License v3.0](./LICENSE)
+[MIT](./LICENSE)

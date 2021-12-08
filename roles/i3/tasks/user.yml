@@ -8,6 +8,7 @@
   loop:
     - .bin
     - .config
+    - .screenlayout
 
 - name: Add user config files
   become_user: '{{ user_name }}'
@@ -21,6 +22,7 @@
     - .Xresources
     - .config
     - .dmrc
+    - .screenlayout
 
 - name: Add user bin scripts
   become_user: '{{ user_name }}'

@@ -26,7 +26,7 @@ alias kus='setxkbmap -layout us -option ctrl:nocaps'
 
 myip(){
 #  curl -s https://ipinfo.io/json | jq .ip | sed -e 's/\"//g' | pbcopy
- curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy
+  curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy
 }
 
 # gcloud full authentication
@@ -41,4 +41,16 @@ sshls(){
 
 tameouvindo() {
   sudo lsof -iTCP -sTCP:LISTEN
+}
+
+onescreen() {
+  bash -c '~/.screenlayout/1-screen.sh'
+}
+
+twoscreens() {
+  bash -c '~/.screenlayout/2-screens.sh'
+}
+
+treescreens() {
+  bash -c '~/.screenlayout/3-screens.sh'
 }

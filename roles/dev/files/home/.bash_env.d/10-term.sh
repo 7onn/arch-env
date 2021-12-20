@@ -14,3 +14,6 @@ export CLICOLOR=auto
 export TERM=xterm-256color
 export GNUTERM=x11
 export EDITOR=vim
+
+# Google Cloud
+export CLOUDSDK_PYTHON=python2

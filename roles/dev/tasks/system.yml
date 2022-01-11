@@ -1,0 +1,8 @@
+---
+- name: Set podman container configuration
+  ansible.builtin.copy:
+    src: etc/containers/registries.conf
+    dest: /etc/containers/registries.conf
+    owner: 'root'
+    group: 'root'
+    mode: '0644'

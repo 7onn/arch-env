@@ -4,5 +4,8 @@
   import_tasks: archlinux.yml
   when: ansible_facts['os_family']|lower == 'archlinux'
 
+- name: System dev configuration
+  import_tasks: system.yml
+
 - name: User dev configuration
   import_tasks: user.yml

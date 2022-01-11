@@ -24,6 +24,8 @@
       - ngrep
       - openbsd-netcat
       - packer
+      - podman
+      - podman-docker
       - python2
       - python-pipenv
       - python-poetry

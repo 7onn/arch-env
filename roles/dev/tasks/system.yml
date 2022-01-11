@@ -1,4 +1,17 @@
 ---
+
+- name: Add subuid and subgid files
+  become: true
+  ansible.builtin.template:
+    src: etc/{{ item }}.j2
+    dest: '/etc/{{ item }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  loop:
+    - subuid
+    - subgid
+
 - name: Set podman container configuration
   become: true
   ansible.builtin.copy:

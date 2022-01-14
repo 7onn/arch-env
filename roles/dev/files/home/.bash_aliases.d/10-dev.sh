@@ -32,8 +32,11 @@ myip(){
 # gcloud full authentication
 alias glogin='gcloud auth login --update-adc --no-launch-browser --force'
 
-# open manuals with Vim
+# Open manuals with Vim
 alias man="man -P \"sh -c 'col -b | vim -c \\\"set ft=man nomod nolist\\\" -'\""
+
+# Ensure Podman
+alias docker='podman'
 
 sshls(){
   for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq

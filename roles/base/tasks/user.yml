@@ -67,6 +67,7 @@
     - .bash_logout
     - .bash_profile
     - .bashrc
+    - Makefile
 
 - name: Add user .ssh configuration file
   become_user: '{{ user_name }}'
@@ -76,3 +77,12 @@
     owner: '{{ user_name }}'
     group: users
     mode: '0644'
+
+- name: Add user Backup scripts folder
+  become_user: '{{ user_name }}'
+  ansible.builtin.copy:
+    src: 'home/.scripts'
+    dest: '/home/{{ user_name }}/'
+    owner: '{{ user_name }}'
+    group: users
+    mode: '0755'

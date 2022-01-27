@@ -102,6 +102,7 @@
       - ntp
       - openssh
       - playerctl
+      - rclone
       - realtime-privileges
       - sudo
       - syncthing

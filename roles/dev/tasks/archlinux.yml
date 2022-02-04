@@ -46,7 +46,7 @@
     name:
       - aws-cli-v2-bin
       - authy
-      - librewolf-bin
+      - brave-bin
       - gdrive
       - google-cloud-sdk
       - pip-tools

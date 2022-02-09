@@ -22,6 +22,16 @@
     - .Xresources
     - .config
     - .dmrc
+
+- name: Add screen config files
+  become_user: '{{ user_name }}'
+  ansible.builtin.copy:
+    src: 'home/{{ item }}'
+    dest: '/home/{{ user_name }}/'
+    owner: '{{ user_name }}'
+    group: users
+    mode: '0744'
+  loop:
     - .screenlayout
 
 - name: Add user bin scripts

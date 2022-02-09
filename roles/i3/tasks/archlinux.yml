@@ -5,6 +5,7 @@
   community.general.pacman:
     state: present
     name:
+      - alacritty
       - arandr
       - cheese
       - chromium

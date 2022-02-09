@@ -19,7 +19,7 @@ font xft:monospace 9
 floating_modifier $mod
 
 # Start a terminal
-set $term i3-sensible-terminal
+set $term alacritty
 # bindsym $mod+Return exec $HOME/.bin/term.sh $term
 bindsym $mod+Return exec $term
 

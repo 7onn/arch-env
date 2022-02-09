@@ -335,16 +335,13 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar -t
-	status_command i3status
-	position bottom # It can be top or bottom
+  i3bar_command i3bar -t
+  status_command i3status
+  position top # It can be top or bottom
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-  tray_output primary # DP-4
-
-	bindsym button4 nop
-	bindsym button5 nop
-	strip_workspace_numbers no # yes
+  bindsym button4 nop
+  bindsym button5 nop
+  strip_workspace_numbers no # yes
 
   colors {
     background #00000000
@@ -357,7 +354,7 @@ bar {
     inactive_workspace #595B5B #222D3100 #EEE8D5
     binding_mode       #16a085 #2C2C2CC0 #F9FAF9
     urgent_workspace   #16a085 #FDF6E3   #E5201D
-  }
+    }
 }
 
 # hide/unhide i3status bar

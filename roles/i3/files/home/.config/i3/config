@@ -276,7 +276,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 #############################
 
 # Set inner/outer gaps
-set $default_inner 10
+set $default_inner 3
 set $default_outer 0
 
 gaps inner $default_inner

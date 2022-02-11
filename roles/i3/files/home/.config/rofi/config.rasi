@@ -1,0 +1,110 @@
+configuration {
+  kb-mode-next: "Shift+Right";
+  kb-mode-previous: "Shift+Left";
+  columns: 1;
+}
+
+* {
+  fg: rgba(179,177,173,100%);
+  bg: rgba(10,14,20,100%);
+  below-bg: rgba(10,14,20,100%);
+  selected-bg: rgba(38,50,56,100%);
+  selected-fg: @fg;
+}
+
+#window {
+  background-color: rgba(10,14,20,0%);
+  padding: 0px;
+  border-radius: 1px;
+  location: center;
+  anchor: center;
+  font: "monospace 9";
+}
+#mainbox {
+  background-color: transparent;
+  children: [sidebar,inputbar,dummy,listview];
+  spacing: 0;
+}
+#sidebar {
+  background-color: transparent;
+  spacing: 0;
+}
+#button {
+  background-color: @fg;
+  text-color: @bg;
+  padding: 5px;
+  expand: false;
+}
+#button.selected {
+  background-color: @bg;
+  text-color: @fg;
+}
+#inputbar {
+  background-color: @bg;
+  text-color: @fg;
+  padding: 10px;
+  border-radius: 0px;
+  spacing: 1px;
+}
+#prompt {
+  background-color: @bg;
+  text-color: @fg;
+}
+#case-indicator {
+  background-color: @bg;
+  text-color: @fg;
+}
+#entry {
+  background-color: @bg;
+  text-color: @fg;
+}
+#dummy {
+  background-color: transparent;
+  expand: false;
+  padding: 1px 0px 0px 0px;
+}
+#listview {
+  background-color: @below-bg;
+  spacing: 0;
+  border-radius: 5px;
+}
+#element {
+  background-color: transparent;
+  padding: 10px;
+}
+#element.normal.normal {
+  background-color: @below-bg;
+  text-color:       @fg;
+}
+#element.normal.urgent {
+  background-color: @below-bg;
+  text-color:       @fg;
+}
+#element.normal.active {
+  background-color: @below-bg;
+  text-color:       @fg;
+}
+#element.selected.normal {
+  background-color: @selected-bg;
+  text-color:       @selected-fg;
+}
+#element.selected.urgent {
+  background-color: @selected-bg;
+  text-color:       @selected-fg;
+}
+#element.selected.active {
+  background-color: @selected-bg;
+  text-color:       @selected-fg;
+}
+#element.alternate.normal {
+  background-color: @below-bg;
+  text-color:       @fg;
+}
+#element.alternate.urgent {
+  background-color: @below-bg;
+  text-color:       @fg;
+}
+#element.alternate.active {
+  background-color: @below-bg;
+  text-color:       @fg;
+}

@@ -10,6 +10,7 @@
     mode: '0755'
 
 - name: Copy background images
+  become: true
   ansible.builtin.copy:
     src: '{{ item }}'
     dest: "/{{ item }}"

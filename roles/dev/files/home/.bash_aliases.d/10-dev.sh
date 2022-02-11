@@ -54,6 +54,6 @@ twoscreens() {
   bash -c '~/.screenlayout/2-screens.sh'
 }
 
-treescreens() {
+threescreens() {
   bash -c '~/.screenlayout/3-screens.sh'
 }

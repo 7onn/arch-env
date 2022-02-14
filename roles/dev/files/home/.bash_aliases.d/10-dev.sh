@@ -57,3 +57,7 @@ twoscreens() {
 threescreens() {
   bash -c '~/.screenlayout/3-screens.sh'
 }
+
+gcproles() {
+  gcloud iam roles list --filter "name~\"$1\"" --format 'table(name, description)'
+}

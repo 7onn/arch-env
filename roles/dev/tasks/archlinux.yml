@@ -12,6 +12,7 @@
       - dnsutils
       - docker-compose
       - emacs
+      - github-cli
       - go
       - inetutils
       - jq

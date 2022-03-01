@@ -9,7 +9,7 @@
     group: root
     mode: '0755'
 
-- name: Copy background images
+- name: Copy backgrounds and pictures
   become: true
   ansible.builtin.copy:
     src: '{{ item }}'
@@ -19,6 +19,7 @@
     mode: '0644'
   loop:
     - usr/share/backgrounds/
+    - usr/share/pictures/
 
 - name: Ensure pulseaudio supports bluetooth
   become: true

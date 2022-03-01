@@ -21,6 +21,17 @@
     - usr/share/backgrounds/
     - usr/share/pictures/
 
+- name: Add lightdm config
+  become: true
+  ansible.builtin.copy:
+    src: '{{ item }}'
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: '0644'
+  loop:
+    - etc/lightdm/
+
 - name: Ensure pulseaudio supports bluetooth
   become: true
   ansible.builtin.lineinfile:

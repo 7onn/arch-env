@@ -54,6 +54,7 @@
       - pip-tools
       - pyenv-virtualenv
       - slack-desktop
+      - tflint-bin
       - tfsec-bin
       - velero-bin
       - visual-studio-code-bin

@@ -54,6 +54,7 @@
       - pip-tools
       - pyenv-virtualenv
       - slack-desktop
+      - terraform-docs
       - tflint-bin
       - tfsec-bin
       - velero-bin

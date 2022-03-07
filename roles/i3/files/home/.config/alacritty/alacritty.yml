@@ -1,5 +1,23 @@
 font:
-  size: 9
+  size: 9  
+  normal:
+    family: FiraCode
+    style: Regular
+  bold:
+      family: FiraCode
+      style: Bold
+  italic:
+    family: FiraCode
+    style: Italic
+  bold_italic:
+    family: FiraCode
+    style: Bold Italic
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
 
 # Colors (Ayu Dark)
 colors:

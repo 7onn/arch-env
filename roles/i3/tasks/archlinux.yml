@@ -49,11 +49,7 @@
       - thunar-media-tags-plugin
       - thunar-volman
       - transmission-gtk
-      - ttf-arphic-uming
-      - ttf-baekmuk
-      - ttf-fantasque-sans-mono
-      - ttf-freefont
-      - ttf-indic-otf
+      - ttf-fira-code
       - viewnior
       - vlc
       - xfce4-power-manager

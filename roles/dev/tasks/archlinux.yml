@@ -18,6 +18,7 @@
       - jq
       - jdk11-openjdk
       - kubectl
+      - kustomize
       - leiningen
       - libusb-compat
       - maven

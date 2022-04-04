@@ -14,6 +14,7 @@
       - emacs
       - github-cli
       - go
+      - grype
       - inetutils
       - jq
       - jdk11-openjdk

@@ -11,6 +11,8 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
+$aws\
+$gcloud\
 $kubernetes\
 $vcsh\
 $docker_context\
@@ -51,8 +53,6 @@ $zig\
 $nix_shell\
 $conda\
 $memory_usage\
-$aws\
-$gcloud\
 $openstack\
 $azure\
 $env_var\
@@ -71,60 +71,61 @@ $character"""
 add_newline = true
 
 [aws]
-symbol = "  "
+# symbol = "  "
 
 [conda]
-symbol = " "
+# symbol = " "
 
 [character]
 success_symbol = "[➜](bold green) "
 error_symbol = "[➜](bold red) "
+
 
 [cmd_duration]
 min_time = 1
 format = "[$duration](bold yellow)"
 
 [dart]
-symbol = " "
+# symbol = " "
 
 [directory]
-read_only = " "
+# read_only = " "
 
 [docker_context]
-symbol = " "
+# symbol = " "
 
 [elixir]
-symbol = " "
+# symbol = " "
 
 [elm]
-symbol = " "
+# symbol = " "
 
 # [env_var.USER]
 # format = "[$env_value](green) "
 # default = "unknown user"
 
 [gcloud]
-symbol = "  "
+# symbol = "  "
 format = '[$symbol$project](blue) '
 
 [git_branch]
-symbol = " "
+# symbol = " "
 format = "[$symbol$branch]($style) "
 
 [golang]
-symbol = " "
+# symbol = " "
 
 [helm]
 disabled = true
 
 [hg_branch]
-symbol = " "
+# symbol = " "
 
 [java]
-symbol = " "
+# symbol = " "
 
 [julia]
-symbol = " "
+# symbol = " "
 
 [kubernetes]
 disabled=false
@@ -138,46 +139,46 @@ format = '[⛵ $context](blue) '
 disabled = true
 
 [memory_usage]
-symbol = " "
+# symbol = " "
 disabled = true
 threshold = -1
 style = "bold dimmed green"
 
 [nim]
-symbol = " "
+# symbol = " "
 
 [nix_shell]
-symbol = " "
+# symbol = " "
 
 [nodejs]
-symbol = " "
+# symbol = " "
 
 [package]
-symbol = " "
+# symbol = " "
 
 [perl]
-symbol = " "
+# symbol = " "
 
 [php]
-symbol = " "
+# symbol = " "
 
 [python]
-symbol = " "
+# symbol = " "
 
 [ruby]
-symbol = " "
+# symbol = " "
 
 [rust]
-symbol = " "
+# symbol = " "
 
 [scala]
-symbol = " "
+# symbol = " "
 
 [shlvl]
-symbol = " "
+# symbol = " "
 
 [swift]
-symbol = "ﯣ "
+# symbol = "ﯣ "
 
 # [sudo]
 # style = "bold green"

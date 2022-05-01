@@ -24,6 +24,7 @@ alias k='kubectl'
 alias kbr='setxkbmap -model abnt2 -layout br -variant abnt2 -option ctrl:nocaps'
 alias kus='setxkbmap -layout us -option ctrl:nocaps'
 
+
 myip(){
 #  curl -s https://ipinfo.io/json | jq .ip | sed -e 's/\"//g' | pbcopy
   curl -s https://httpbin.org/ip | jq .origin | sed -e 's/\"//g' | pbcopy
@@ -32,11 +33,19 @@ myip(){
 # gcloud full authentication
 alias glogin='gcloud auth login --update-adc --no-launch-browser --force'
 
+# gcloud authenticated curl requests
+alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+
 # Open manuals with Vim
 alias man="man -P \"sh -c 'col -b | vim -c \\\"set ft=man nomod nolist\\\" -'\""
 
 # Ensure Podman
 alias docker='podman'
+
+# Clean Git Branches
+rmbranches(){
+    git branch -D  $(git branch | grep -v "\(\*\|main\|master\)")
+}
 
 sshls(){
   for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq

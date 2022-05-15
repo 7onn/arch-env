@@ -102,6 +102,7 @@
       - ntp
       - openssh
       - playerctl
+      - q-dns-git
       - rclone
       - realtime-privileges
       - sudo

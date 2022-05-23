@@ -19,31 +19,94 @@ font:
     x: 0
     y: 0
 
-# Colors (Ayu Dark)
+# Colors (Dracula)
+# Dracula theme for Alacritty
+# https://draculatheme.com/alacritty
+#
+# Color palette
+# https://spec.draculatheme.com
+#
+# Template
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+
 colors:
-  # Default colors
   primary:
-    background: '0x0A0E14'
-    foreground: '0xB3B1AD'
-
-  # Normal colors
+    background: '#282a36'
+    foreground: '#f8f8f2'
+    bright_foreground: '#ffffff'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+    bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
   normal:
-    black:   '0x01060E'
-    red:     '0xEA6C73'
-    green:   '0x91B362'
-    yellow:  '0xF9AF4F'
-    blue:    '0x53BDFA'
-    magenta: '0xFAE994'
-    cyan:    '0x90E1C6'
-    white:   '0xC7C7C7'
-
-  # Bright colors
+    black: '#21222c'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#bd93f9'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#f8f8f2'
   bright:
-    black:   '0x686868'
-    red:     '0xF07178'
-    green:   '0xC2D94C'
-    yellow:  '0xFFB454'
-    blue:    '0x59C2FF'
-    magenta: '0xFFEE99'
-    cyan:    '0x95E6CB'
-    white:   '0xFFFFFF'
+    black: '#6272a4'
+    red: '#ff6e6e'
+    green: '#69ff94'
+    yellow: '#ffffa5'
+    blue: '#d6acff'
+    magenta: '#ff92df'
+    cyan: '#a4ffff'
+    white: '#ffffff'
+
+# # Colors (Ayu Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x0A0E14'
+#     foreground: '0xB3B1AD'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x01060E'
+#     red:     '0xEA6C73'
+#     green:   '0x91B362'
+#     yellow:  '0xF9AF4F'
+#     blue:    '0x53BDFA'
+#     magenta: '0xFAE994'
+#     cyan:    '0x90E1C6'
+#     white:   '0xC7C7C7'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x686868'
+#     red:     '0xF07178'
+#     green:   '0xC2D94C'
+#     yellow:  '0xFFB454'
+#     blue:    '0x59C2FF'
+#     magenta: '0xFFEE99'
+#     cyan:    '0x95E6CB'
+#     white:   '0xFFFFFF'

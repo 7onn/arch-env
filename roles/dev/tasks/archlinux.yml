@@ -61,5 +61,6 @@
       - tfsec-bin
       - velero-bin
       - visual-studio-code-bin
+      - woeusb-ng
       - zoom
       - zplug
